@@ -1,0 +1,51 @@
+<div class="shadow p-4 border rounded-lg">
+    <div class="flex justify-between items-center">
+        <h2 class="text-xl font-semibold">User Records</h2>
+        <!-- <button mat-raised-button color="primary" routerLink="/users/add" class="ml-auto mb-4">
+          New User
+        </button> -->
+
+        <button mat-raised-button routerLink="/users/add" class="ml-auto mb-4" style="background-color: #2196F3; color: white;">
+          New User
+        </button>
+      </div>
+    <div class="overflow-x-auto">
+      <table class="min-w-full table-auto border-collapse border border-gray-200">
+        <thead>
+          <tr class="bg-gray-100">
+            <th class="border px-4 py-2">Name</th>
+            <th class="border px-4 py-2">Age</th>
+            <th class="border px-4 py-2">Gender</th>
+            <th class="border px-4 py-2">Mobile Number</th>
+            <th class="border px-4 py-2">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+         @for(user of users; track $index){
+           <tr class="hover:bg-gray-50">
+            <td class="border px-4 py-2">{{ user.name }}</td>
+            <td class="border px-4 py-2">{{ user.age }}</td>
+            <td class="border px-4 py-2">{{ user.gender }}</td>
+            <td class="border px-4 py-2">{{ user.mobileNumber }}</td>
+            <td class="border px-10 py-2 ml-8">
+              <button 
+                class="bg-blue-500 hover:bg-blue-600 text-white px-3 py-1 rounded mr-2" 
+                [routerLink]=" '/users/' + user._id "
+                >
+                Edit
+              </button>
+              <button 
+                class="bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded" 
+                (click)="deleteUser(user._id!)"
+               >
+                Delete
+              </button>
+            </td>
+          </tr>
+
+        }
+        </tbody>
+      </table>
+    </div>
+  </div>
+  
