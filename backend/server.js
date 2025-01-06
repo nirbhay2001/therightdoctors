@@ -7,7 +7,12 @@ const app = express();
 
 // Middleware
 app.use(express.json());
-app.use(cors());
+// app.use(cors());
+app.use(cors({
+  origin:["http://localhost:4200","https://therightdoctors-assignment.vercel.app"],
+  methods:['POST','GET','HEAD','PUT','DELETE'],
+  credentials: true
+}))
 const URI = process.env.MONGO_URI;
 
 // MongoDB connection
