@@ -6,8 +6,8 @@ import User from './user';
   providedIn: 'root'
 })
 export class UserService {
-  // apiURL = "http://localhost:5000"
-  apiURL = "https://therightdoctors.onrender.com"
+  apiURL = "http://localhost:5000"
+  // apiURL = "https://therightdoctors.onrender.com"
   httpClient = inject(HttpClient)
   constructor() { }
   getUsers(){
